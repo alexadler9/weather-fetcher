@@ -3,6 +3,7 @@ package com.example.weatherfetcher.feature.weather_screen.data
 import com.example.weatherfetcher.WEATHER_BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object WeatherApiClient {
 
@@ -11,6 +12,7 @@ object WeatherApiClient {
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(WEATHER_BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
 
