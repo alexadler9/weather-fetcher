@@ -37,6 +37,8 @@ dependencies {
     def lifecycle_version = "2.5.1"
     def retrofit_version = "2.9.0"
     def coroutines_version = "1.6.4"
+    def gson_version = "2.10.1"
+    def koin_version = "3.3.2"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.0'
@@ -46,8 +48,18 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"      //ViewModel
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"       //LiveData
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"                  //Retrofit
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"  //Coroutines
+    //Android Lifecycle ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    //Android Lifecycle LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    //A type-safe HTTP client for Android and Java
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    //Coroutines libraries for Kotlin
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    //Library that can be used to convert Java Objects into their JSON representation
+    implementation "com.google.code.gson:gson:$gson_version"
+    //A Retrofit Converter which uses Gson for serialization
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    //Kotlin simple Dependency Injection Framework
+    implementation "io.insert-koin:koin-android:$koin_version"
 }
