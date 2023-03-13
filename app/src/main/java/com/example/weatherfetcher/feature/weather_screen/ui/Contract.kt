@@ -4,7 +4,8 @@ import com.example.weatherfetcher.base.Event
 
 data class ViewState(
     val isLoading: Boolean,
-    val temperature: String
+    val temperature: String,
+    val windDeg: String
 )
 
 sealed class UiEvent() : Event {
@@ -12,6 +13,6 @@ sealed class UiEvent() : Event {
 }
 
 sealed class DataEvent() : Event {
-    data class OnWeatherFetchSucceed(val temperature: String) : DataEvent()
+    data class OnWeatherFetchSucceed(val temperature: String, val windDeg: String) : DataEvent()
     data class OnWeatherFetchFailed(val error: Throwable) : DataEvent()
 }

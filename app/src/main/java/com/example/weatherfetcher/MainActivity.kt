@@ -15,9 +15,10 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: WeatherScreenViewModel by viewModel()
 
-    private val pbWeather: ProgressBar by lazy { findViewById(R.id.pbWeather) }
-    private val tvWeather: TextView by lazy { findViewById(R.id.tvWeather) }
     private val fabWeather: FloatingActionButton by lazy { findViewById(R.id.fabWeatherFetch) }
+    private val pbWeather: ProgressBar by lazy { findViewById(R.id.pbWeather) }
+    private val tvTemperature: TextView by lazy { findViewById(R.id.tvTemperature) }
+    private val tvWind: TextView by lazy { findViewById(R.id.tvWind) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun render(viewState: ViewState) {
         pbWeather.isVisible = viewState.isLoading
-        tvWeather.text = viewState.temperature
+        tvTemperature.text = viewState.temperature
+        tvWind.text = viewState.windDeg
     }
 }

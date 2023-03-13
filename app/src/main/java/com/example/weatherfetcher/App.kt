@@ -1,7 +1,7 @@
 package com.example.weatherfetcher
 
 import android.app.Application
-import com.example.weatherfetcher.feature.weather_screen.di.weatherScreenModule
+import com.example.weatherfetcher.feature.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -13,7 +13,7 @@ class App : Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(weatherScreenModule)
+            modules(networkModule)
         }
     }
 }

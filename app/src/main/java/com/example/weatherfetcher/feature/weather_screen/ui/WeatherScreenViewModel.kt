@@ -9,7 +9,11 @@ import kotlinx.coroutines.launch
 class WeatherScreenViewModel(private val interactor: WeatherInteractor) :
     BaseViewModel<ViewState>() {
 
-    override fun initialViewState(): ViewState = ViewState(isLoading = false, temperature = "")
+    override fun initialViewState(): ViewState = ViewState(
+        isLoading = false,
+        temperature = "",
+        windDeg = ""
+    )
 
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
         when (event) {
@@ -20,15 +24,24 @@ class WeatherScreenViewModel(private val interactor: WeatherInteractor) :
                             processDataEvent(DataEvent.OnWeatherFetchFailed(error = it))
                         },
                         onSuccess = {
-                            processDataEvent(DataEvent.OnWeatherFetchSucceed(temperature = it.temperature))
+                            processDataEvent(
+                                DataEvent.OnWeatherFetchSucceed(
+                                    temperature = it.temperature,
+                                    windDeg = it.windDeg
+                                )
+                            )
                         }
                     )
                 }
-                return previousState.copy(isLoading = true)
+                return previousState.copy(isLoading = true, temperature = "", windDeg = "")
             }
 
             is DataEvent.OnWeatherFetchSucceed -> {
-                return previousState.copy(isLoading = false, temperature = event.temperature)
+                return previousState.copy(
+                    isLoading = false,
+                    temperature = event.temperature,
+                    windDeg = event.windDeg
+                )
             }
 
             else -> return null

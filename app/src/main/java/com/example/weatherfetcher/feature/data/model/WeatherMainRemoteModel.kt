@@ -1,4 +1,4 @@
-package com.example.weatherfetcher.feature.weather_screen.data.model
+package com.example.weatherfetcher.feature.data.model
 
 import com.google.gson.annotations.SerializedName
 
