@@ -36,6 +36,7 @@ dependencies {
 
     def retrofit_version = "2.9.0"
     def gson_version = "2.10.1"
+    def koin_version = "3.3.2"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -47,6 +48,8 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     // A Retrofit Converter which uses Gson for serialization
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    // Kotlin simple Dependency Injection Framework
+    implementation "io.insert-koin:koin-android:$koin_version"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
