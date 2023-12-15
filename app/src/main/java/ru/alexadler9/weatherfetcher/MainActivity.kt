@@ -3,27 +3,31 @@ package ru.alexadler9.weatherfetcher
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import org.koin.android.ext.android.inject
-import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenPresenter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.UiEvent
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.ViewState
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val presenter: WeatherScreenPresenter by inject()
+    private val viewModel: WeatherScreenViewModel by viewModel()
+
+    private val tvWeather: TextView by lazy { findViewById(R.id.tvWeather) }
+    private val fabWeather: FloatingActionButton by lazy { findViewById(R.id.fabWeatherFetch) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val tvWeather = findViewById<TextView>(R.id.tvWeather)
+        viewModel.viewState.observe(this, ::render)
 
-        GlobalScope.launch {
-            withContext(Dispatchers.Main) {
-                tvWeather.text = presenter.getWeather()
-            }
+        fabWeather.setOnClickListener {
+            viewModel.processUiEvent(UiEvent.OnButtonClicked)
         }
+    }
+
+    private fun render(viewState: ViewState) {
+        tvWeather.text = viewState.temperature
     }
 }
