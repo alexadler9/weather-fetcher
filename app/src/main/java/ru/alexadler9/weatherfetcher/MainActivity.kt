@@ -1,8 +1,10 @@
 package ru.alexadler9.weatherfetcher
 
 import android.os.Bundle
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.UiEvent
@@ -13,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: WeatherScreenViewModel by viewModel()
 
+    private val pbWeather: ProgressBar by lazy { findViewById(R.id.pbWeather) }
     private val tvWeather: TextView by lazy { findViewById(R.id.tvWeather) }
     private val fabWeather: FloatingActionButton by lazy { findViewById(R.id.fabWeatherFetch) }
 
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun render(viewState: ViewState) {
+        pbWeather.isVisible = viewState.isLoading
         tvWeather.text = viewState.temperature
     }
 }
