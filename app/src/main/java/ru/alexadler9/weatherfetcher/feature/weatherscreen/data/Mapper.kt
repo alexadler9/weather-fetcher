@@ -1,8 +1,10 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.data
 
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.WeatherGeoRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.WeatherRemoteModel
-import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.WeatherDetailsModel
-import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.WeatherModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.WeatherDetailsModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.WeatherGeoModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.WeatherModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,4 +27,10 @@ fun WeatherRemoteModel.toDomain() = WeatherModel(
             icon = it.icon
         )
     }
+)
+
+fun WeatherGeoRemoteModel.toDomain() = WeatherGeoModel(
+    latitude = this.lat,
+    longitude = this.lon,
+    country = this.country
 )

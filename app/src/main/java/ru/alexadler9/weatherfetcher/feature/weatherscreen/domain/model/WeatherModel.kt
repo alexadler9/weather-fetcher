@@ -1,4 +1,4 @@
-package ru.alexadler9.weatherfetcher.feature.weatherscreen.domain
+package ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model
 
 data class WeatherModel(
     val datetime: String = "",

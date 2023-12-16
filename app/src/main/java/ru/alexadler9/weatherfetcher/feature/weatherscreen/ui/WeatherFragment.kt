@@ -44,6 +44,7 @@ class WeatherFragment : Fragment() {
             when (viewState.state) {
                 is State.Load -> {
                     layoutError.isVisible = false
+                    layoutNotFound.isVisible = false
                     pbWeather.isVisible = true
                     fabWeatherFetch.isEnabled = false
                     layoutWeather.isVisible = false
@@ -51,6 +52,7 @@ class WeatherFragment : Fragment() {
 
                 is State.Content -> {
                     layoutError.isVisible = false
+                    layoutNotFound.isVisible = false
                     pbWeather.isVisible = false
                     fabWeatherFetch.isEnabled = true
                     layoutWeather.isVisible = true
@@ -58,8 +60,10 @@ class WeatherFragment : Fragment() {
                     tvWeather.text = weather.toString()
                 }
 
-                is State.Error -> {
-                    layoutError.isVisible = true
+                is State.Error,
+                is State.NotFound -> {
+                    layoutError.isVisible = viewState.state is State.Error
+                    layoutNotFound.isVisible = viewState.state is State.NotFound
                     pbWeather.isVisible = false
                     fabWeatherFetch.isEnabled = true
                     layoutWeather.isVisible = false
