@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherFetcher</string>
+    <string name="load_error">ОШИБКА ЗАГРУЗКИ ДАННЫХ</string>
 </resources>

@@ -41,8 +41,30 @@ class WeatherFragment : Fragment() {
 
     private fun render(viewState: ViewState) {
         with(binding) {
-            pbWeather.isVisible = viewState.isLoading
-            tvWeather.text = viewState.temperature
+            when (viewState.state) {
+                is State.Load -> {
+                    layoutError.isVisible = false
+                    pbWeather.isVisible = true
+                    fabWeatherFetch.isEnabled = false
+                    layoutWeather.isVisible = false
+                }
+
+                is State.Content -> {
+                    layoutError.isVisible = false
+                    pbWeather.isVisible = false
+                    fabWeatherFetch.isEnabled = true
+                    layoutWeather.isVisible = true
+                    val weather = viewState.state.weatherModel
+                    tvWeather.text = weather.toString()
+                }
+
+                is State.Error -> {
+                    layoutError.isVisible = true
+                    pbWeather.isVisible = false
+                    fabWeatherFetch.isEnabled = true
+                    layoutWeather.isVisible = false
+                }
+            }
         }
     }
 }

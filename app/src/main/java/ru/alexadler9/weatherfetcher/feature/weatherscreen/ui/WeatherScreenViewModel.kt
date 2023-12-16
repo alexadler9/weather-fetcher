@@ -9,32 +9,40 @@ import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.WeatherInteract
 class WeatherScreenViewModel(private val interactor: WeatherInteractor) :
     BaseViewModel<ViewState>() {
 
-    override fun initialViewState(): ViewState = ViewState(
-        isLoading = false,
-        temperature = ""
-    )
+    override fun initialViewState(): ViewState {
+        weatherLoad()
+        return ViewState(state = State.Load)
+    }
 
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
         return when (event) {
             is UiEvent.OnButtonClicked -> {
-                viewModelScope.launch {
-                    interactor.getWeather().fold(
-                        onError = {
-                            processDataEvent(DataEvent.OnWeatherFetchFailed(error = it))
-                        },
-                        onSuccess = {
-                            processDataEvent(DataEvent.OnWeatherFetchSucceed(temperature = it.temp))
-                        }
-                    )
-                }
-                previousState.copy(isLoading = true)
+                weatherLoad()
+                previousState.copy(state = State.Load)
             }
 
             is DataEvent.OnWeatherFetchSucceed -> {
-                previousState.copy(isLoading = false, temperature = event.temperature)
+                previousState.copy(state = State.Content(event.weatherModel))
+            }
+
+            is DataEvent.OnWeatherFetchFailed -> {
+                return previousState.copy(state = State.Error(event.error))
             }
 
             else -> null
+        }
+    }
+
+    private fun weatherLoad() {
+        viewModelScope.launch {
+            interactor.getWeather().fold(
+                onError = {
+                    processDataEvent(DataEvent.OnWeatherFetchFailed(error = it))
+                },
+                onSuccess = {
+                    processDataEvent(DataEvent.OnWeatherFetchSucceed(weatherModel = it))
+                }
+            )
         }
     }
 }
