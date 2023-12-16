@@ -1,7 +1,6 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui
 
 import ru.alexadler9.weatherfetcher.base.Event
-import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.WeatherGeoModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.WeatherModel
 
 sealed class State {
@@ -20,7 +19,7 @@ sealed class UiEvent() : Event {
 }
 
 sealed class DataEvent() : Event {
-    data class OnCoordinatesLoadSucceed(val coordinates: List<WeatherGeoModel>) : DataEvent()
     data class OnWeatherLoadSucceed(val weatherModel: WeatherModel) : DataEvent()
-    data class OnDataLoadFailed(val error: Throwable) : DataEvent()
+    data class OnWeatherLoadFailed(val error: Throwable) : DataEvent()
+    object OnWeatherNotFound : DataEvent()
 }
