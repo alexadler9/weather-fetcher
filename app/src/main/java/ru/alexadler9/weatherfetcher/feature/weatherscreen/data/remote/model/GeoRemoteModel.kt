@@ -2,7 +2,7 @@ package ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class WeatherGeoRemoteModel(
+data class GeoRemoteModel(
     @SerializedName("name")
     val name: String,
     @SerializedName("lat")

@@ -1,6 +1,7 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote
 
-import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.WeatherGeoRemoteModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.ForecastRemoteModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.GeoRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.WeatherRemoteModel
 
 class WeatherRemoteSource(private val api: WeatherApi) {
@@ -12,7 +13,14 @@ class WeatherRemoteSource(private val api: WeatherApi) {
         )
     }
 
-    suspend fun getCoordinates(city: String): List<WeatherGeoRemoteModel> {
+    suspend fun getForecast(latitude: String, longitude: String): ForecastRemoteModel {
+        return api.getForecast(
+            lat = latitude,
+            lon = longitude
+        )
+    }
+
+    suspend fun getCoordinates(city: String): List<GeoRemoteModel> {
         return api.getCoordinates(city)
     }
 }
