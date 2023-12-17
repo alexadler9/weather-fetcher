@@ -2,4 +2,6 @@
     <string name="app_name">WeatherFetcher</string>
     <string name="load_error">ОШИБКА ЗАГРУЗКИ ДАННЫХ</string>
     <string name="city_not_found">ГОРОД НЕ НАЙДЕН</string>
+    <string name="menu_weather_current">СЕГОДНЯ</string>
+    <string name="menu_weather_forecast">НА 3 ДНЯ</string>
 </resources>

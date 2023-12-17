@@ -1,4 +1,4 @@
-package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui
+package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.forecastfragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,20 +7,20 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.alexadler9.weatherfetcher.databinding.FragmentWeatherBinding
+import ru.alexadler9.weatherfetcher.databinding.FragmentForecastBinding
 
-class WeatherFragment : Fragment() {
+class ForecastFragment : Fragment() {
 
-    private val viewModel: WeatherScreenViewModel by viewModel()
+    private val viewModel: ForecastFragmentViewModel by viewModel()
 
-    private var _binding: FragmentWeatherBinding? = null
+    private var _binding: FragmentForecastBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentWeatherBinding.inflate(inflater, container, false)
+    ): View {
+        _binding = FragmentForecastBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -56,8 +56,8 @@ class WeatherFragment : Fragment() {
                     pbWeather.isVisible = false
                     fabWeatherFetch.isEnabled = true
                     layoutWeather.isVisible = true
-                    val weather = viewState.state.weatherModel
-                    tvWeather.text = weather.toString()
+                    val forecast = viewState.state.forecastModel
+                    tvWeather.text = forecast.toString()
                 }
 
                 is State.Error,

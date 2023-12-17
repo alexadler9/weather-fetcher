@@ -1,4 +1,4 @@
-package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui
+package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.weatherfragment
 
 import ru.alexadler9.weatherfetcher.base.Event
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.WeatherModel
