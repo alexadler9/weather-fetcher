@@ -11,15 +11,33 @@ class WeatherFragmentViewModel(private val interactor: WeatherInteractor) :
     BaseViewModel<ViewState>() {
 
     override fun initialViewState(): ViewState {
-        weatherLoad("Челябинск")
-        return ViewState(state = State.Load)
+        weatherLoad(interactor.getCity())
+        return ViewState(
+            cityEditable = "",
+            city = interactor.getCity(),
+            state = State.Load
+        )
     }
 
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
         return when (event) {
-            is UiEvent.OnButtonClicked -> {
-                weatherLoad("Челябинск")
+            is UiEvent.OnUpdateButtonClicked -> {
+                weatherLoad(previousState.city)
                 previousState.copy(state = State.Load)
+            }
+
+            is UiEvent.OnCitySearchEdit -> {
+                previousState.copy(cityEditable = event.text)
+            }
+
+            is UiEvent.OnCitySearchButtonClicked -> {
+                interactor.setCity(previousState.cityEditable)
+                weatherLoad(previousState.cityEditable)
+                previousState.copy(
+                    cityEditable = "",
+                    city = previousState.cityEditable,
+                    state = State.Load
+                )
             }
 
             is DataEvent.OnWeatherLoadSucceed -> {

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -37,6 +38,7 @@ android {
 
 dependencies {
 
+    def prefs_version = "1.5.0"
     def retrofit_version = "2.9.0"
     def gson_version = "2.10.1"
     def koin_version = "3.3.2"
@@ -45,6 +47,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    //This library incorporates annotation processing to ensure the compile time verification for user-defined shared preferences
+    implementation "co.windly:ktx-prefs:$prefs_version"
+    kapt "co.windly:ktx-prefs-compiler:$prefs_version"
     // A type-safe HTTP client for Android and Java
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     // Library that can be used to convert Java Objects into their JSON representation

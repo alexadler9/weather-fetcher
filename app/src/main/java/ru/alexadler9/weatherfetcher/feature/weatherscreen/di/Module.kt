@@ -8,6 +8,10 @@ import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.weatherfragment.Wea
 
 val weatherModule = module {
 
+//    viewModel<WeatherFragmentViewModel> { (city: String) -> WeatherFragmentViewModel(get<WeatherInteractor>(), city) }
+//
+//    viewModel<ForecastFragmentViewModel> { (city: String) -> ForecastFragmentViewModel(get<WeatherInteractor>(), city) }
+
     viewModel<WeatherFragmentViewModel> { WeatherFragmentViewModel(get<WeatherInteractor>()) }
 
     viewModel<ForecastFragmentViewModel> { ForecastFragmentViewModel(get<WeatherInteractor>()) }
