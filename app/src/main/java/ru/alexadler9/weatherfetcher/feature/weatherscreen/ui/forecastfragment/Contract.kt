@@ -11,10 +11,14 @@ sealed class State {
 }
 
 data class ViewState(
+    val cityEditable: String,
+    val city: String,
     val state: State
 )
 
 sealed class UiEvent() : Event {
+    data class OnCitySearchEdit(val text: String) : UiEvent()
+    object OnCitySearchButtonClicked : UiEvent()
     object OnButtonClicked : UiEvent()
 }
 

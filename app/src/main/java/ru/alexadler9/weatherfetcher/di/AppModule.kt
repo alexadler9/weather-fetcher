@@ -1,9 +1,13 @@
 package ru.alexadler9.weatherfetcher.di
 
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.alexadler9.weatherfetcher.data.PreferencesRepository
+import ru.alexadler9.weatherfetcher.data.PreferencesRepositoryImpl
+import ru.alexadler9.weatherfetcher.data.local.AppPreferencesSource
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.WeatherRepository
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.WeatherRepositoryImpl
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.WeatherApi
@@ -28,11 +32,20 @@ val networkModule = module {
             .build()
     }
 
+    single<AppPreferencesSource> { AppPreferencesSource(androidApplication()) }
+
+    single<PreferencesRepository> { PreferencesRepositoryImpl(get<AppPreferencesSource>()) }
+
     single<WeatherApi> { get<Retrofit>().create(WeatherApi::class.java) }
 
     single<WeatherRemoteSource> { WeatherRemoteSource(get<WeatherApi>()) }
 
     single<WeatherRepository> { WeatherRepositoryImpl(get<WeatherRemoteSource>()) }
 
-    single<WeatherInteractor> { WeatherInteractor(get<WeatherRepository>()) }
+    single<WeatherInteractor> {
+        WeatherInteractor(
+            get<WeatherRepository>(),
+            get<PreferencesRepository>()
+        )
+    }
 }

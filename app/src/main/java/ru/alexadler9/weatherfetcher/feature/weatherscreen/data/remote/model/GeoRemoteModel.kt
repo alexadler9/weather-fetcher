@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class GeoRemoteModel(
     @SerializedName("name")
     val name: String,
+    @SerializedName("local_names")
+    val localNames: Map<String, String>,
     @SerializedName("lat")
     val lat: Double,
     @SerializedName("lon")

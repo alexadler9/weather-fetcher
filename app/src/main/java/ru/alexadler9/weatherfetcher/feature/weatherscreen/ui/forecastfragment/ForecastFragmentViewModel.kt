@@ -11,15 +11,33 @@ class ForecastFragmentViewModel(private val interactor: WeatherInteractor) :
     BaseViewModel<ViewState>() {
 
     override fun initialViewState(): ViewState {
-        forecastLoad("Челябинск")
-        return ViewState(state = State.Load)
+        forecastLoad(interactor.getCity())
+        return ViewState(
+            cityEditable = "",
+            city = interactor.getCity(),
+            state = State.Load
+        )
     }
 
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
         return when (event) {
             is UiEvent.OnButtonClicked -> {
-                forecastLoad("Челябинск")
+                forecastLoad(previousState.city)
                 previousState.copy(state = State.Load)
+            }
+
+            is UiEvent.OnCitySearchEdit -> {
+                previousState.copy(cityEditable = event.text)
+            }
+
+            is UiEvent.OnCitySearchButtonClicked -> {
+                interactor.setCity(previousState.cityEditable)
+                forecastLoad(previousState.cityEditable)
+                previousState.copy(
+                    cityEditable = "",
+                    city = previousState.cityEditable,
+                    state = State.Load
+                )
             }
 
             is DataEvent.OnForecastLoadSucceed -> {
@@ -45,7 +63,10 @@ class ForecastFragmentViewModel(private val interactor: WeatherInteractor) :
                     processDataEvent(DataEvent.OnForecastLoadFailed(error = it))
                 },
                 onSuccess = { geoModel ->
-                    if (geoModel.isEmpty()) {
+                    if (geoModel.isEmpty() ||
+                        !geoModel.first().localNames.containsKey("ru") ||
+                        !geoModel.first().localNames["ru"].equals(city, true)
+                    ) {
                         processDataEvent(DataEvent.OnForecastNotFound)
                     } else {
                         val geo = geoModel.first()
