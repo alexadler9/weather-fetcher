@@ -63,7 +63,10 @@ class ForecastFragmentViewModel(private val interactor: WeatherInteractor) :
                     processDataEvent(DataEvent.OnForecastLoadFailed(error = it))
                 },
                 onSuccess = { geoModel ->
-                    if (geoModel.isEmpty()) {
+                    if (geoModel.isEmpty() ||
+                        !geoModel.first().localNames.containsKey("ru") ||
+                        !geoModel.first().localNames["ru"].equals(city, true)
+                    ) {
                         processDataEvent(DataEvent.OnForecastNotFound)
                     } else {
                         val geo = geoModel.first()

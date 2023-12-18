@@ -95,5 +95,6 @@ fun ForecastRemoteModel.toDomain(): ForecastModel {
 fun GeoRemoteModel.toDomain() = GeoModel(
     latitude = this.lat,
     longitude = this.lon,
-    country = this.country
+    country = this.country,
+    localNames = this.localNames
 )
