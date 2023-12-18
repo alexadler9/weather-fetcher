@@ -1,4 +1,4 @@
-package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui
+package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.forecastfragment
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
@@ -7,30 +7,30 @@ import ru.alexadler9.weatherfetcher.base.BaseViewModel
 import ru.alexadler9.weatherfetcher.base.Event
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.WeatherInteractor
 
-class WeatherScreenViewModel(private val interactor: WeatherInteractor) :
+class ForecastFragmentViewModel(private val interactor: WeatherInteractor) :
     BaseViewModel<ViewState>() {
 
     override fun initialViewState(): ViewState {
-        weatherLoad("Челябинск")
+        forecastLoad("Челябинск")
         return ViewState(state = State.Load)
     }
 
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
         return when (event) {
             is UiEvent.OnButtonClicked -> {
-                weatherLoad("Челябинск")
+                forecastLoad("Челябинск")
                 previousState.copy(state = State.Load)
             }
 
-            is DataEvent.OnWeatherLoadSucceed -> {
-                previousState.copy(state = State.Content(event.weatherModel))
+            is DataEvent.OnForecastLoadSucceed -> {
+                previousState.copy(state = State.Content(event.forecastModel))
             }
 
-            is DataEvent.OnWeatherLoadFailed -> {
+            is DataEvent.OnForecastLoadFailed -> {
                 return previousState.copy(state = State.Error(event.error))
             }
 
-            is DataEvent.OnWeatherNotFound -> {
+            is DataEvent.OnForecastNotFound -> {
                 return previousState.copy(state = State.NotFound)
             }
 
@@ -38,27 +38,27 @@ class WeatherScreenViewModel(private val interactor: WeatherInteractor) :
         }
     }
 
-    private fun weatherLoad(city: String) {
+    private fun forecastLoad(city: String) {
         viewModelScope.launch {
             interactor.getCoordinates(city).fold(
                 onError = {
-                    processDataEvent(DataEvent.OnWeatherLoadFailed(error = it))
+                    processDataEvent(DataEvent.OnForecastLoadFailed(error = it))
                 },
                 onSuccess = { geoModel ->
                     if (geoModel.isEmpty()) {
-                        processDataEvent(DataEvent.OnWeatherNotFound)
+                        processDataEvent(DataEvent.OnForecastNotFound)
                     } else {
                         val geo = geoModel.first()
                         Log.d(this.javaClass.simpleName, geo.toString())
-                        interactor.getWeather(
+                        interactor.getForecast(
                             geo.latitude.toString(),
                             geo.longitude.toString()
                         ).fold(
                             onError = {
-                                processDataEvent(DataEvent.OnWeatherLoadFailed(error = it))
+                                processDataEvent(DataEvent.OnForecastLoadFailed(error = it))
                             },
                             onSuccess = {
-                                processDataEvent(DataEvent.OnWeatherLoadSucceed(weatherModel = it))
+                                processDataEvent(DataEvent.OnForecastLoadSucceed(forecastModel = it))
                             }
                         )
                     }
