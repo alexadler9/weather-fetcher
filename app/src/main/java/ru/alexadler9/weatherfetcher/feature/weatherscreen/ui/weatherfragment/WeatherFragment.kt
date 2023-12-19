@@ -5,14 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.alexadler9.weatherfetcher.MainActivity
-import ru.alexadler9.weatherfetcher.base.toEditable
 import ru.alexadler9.weatherfetcher.databinding.FragmentWeatherBinding
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenContract
 
-class WeatherFragment : Fragment() {
+class WeatherFragment : Fragment(), WeatherScreenContract.Fragment {
 
     //    private val viewModel: WeatherFragmentViewModel by viewModel {
 //        parametersOf(requireAppPreferences().getCity())
@@ -38,17 +36,6 @@ class WeatherFragment : Fragment() {
         binding.fabWeatherFetch.setOnClickListener {
             viewModel.processUiEvent(UiEvent.OnUpdateButtonClicked)
         }
-
-        with((activity as MainActivity).binding) {
-            etCitySearch.doAfterTextChanged {
-                viewModel.processUiEvent(UiEvent.OnCitySearchEdit(it.toString()))
-            }
-
-            ivCitySearch.setOnClickListener {
-                viewModel.processUiEvent(UiEvent.OnCitySearchButtonClicked)
-                etCitySearch.clearFocus()
-            }
-        }
     }
 
     override fun onDestroyView() {
@@ -57,11 +44,10 @@ class WeatherFragment : Fragment() {
     }
 
     private fun render(viewState: ViewState) {
-        with((activity as MainActivity).binding) {
-            if (etCitySearch.text.toString() != viewState.cityEditable) {
-                etCitySearch.text = viewState.cityEditable.toEditable()
-            }
-            ivCitySearch.isEnabled = etCitySearch.text.isNotEmpty()
+        val activityParent = activity
+        if (activityParent is WeatherScreenContract.Activity) {
+            activityParent.citySearchEditSetText(viewState.cityEditable)
+            activityParent.citySearchButtonSetEnabled(viewState.cityEditable.isNotEmpty())
         }
         with(binding) {
             when (viewState.state) {
@@ -93,5 +79,13 @@ class WeatherFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCitySearchEditChanged(text: String) {
+        viewModel.processUiEvent(UiEvent.OnCitySearchEdit(text))
+    }
+
+    override fun onCitySearchButtonClicked() {
+        viewModel.processUiEvent(UiEvent.OnCitySearchButtonClicked)
     }
 }
