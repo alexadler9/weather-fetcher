@@ -12,6 +12,11 @@ import ru.alexadler9.weatherfetcher.databinding.ActivityMainBinding
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.forecastfragment.ForecastFragment
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.weatherfragment.WeatherFragment
 
+/**
+ * The activity controls weather/forecast fragments. Also responsible for shared elements such as:
+ * - location input field;
+ * - location search button.
+ */
 class MainActivity : AppCompatActivity(), WeatherScreenContract.Activity {
 
     private lateinit var binding: ActivityMainBinding

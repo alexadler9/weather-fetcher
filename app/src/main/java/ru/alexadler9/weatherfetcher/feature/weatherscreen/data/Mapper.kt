@@ -7,6 +7,10 @@ import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.*
 import java.text.SimpleDateFormat
 import java.util.*
 
+/**
+ * Mappers from remote weather models to local models.
+ */
+
 private const val DATE_TIME_PATTERN = "dd.MM.yyyy HH:mm"
 
 private fun convertTimestampToDateString(timestamp: Long, pattern: String) =

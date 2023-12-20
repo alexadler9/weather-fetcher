@@ -10,6 +10,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.alexadler9.weatherfetcher.databinding.FragmentForecastBinding
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenContract
 
+/**
+ * Fragment is responsible for loading and displaying the list of daily forecasts for the specified location.
+ */
 class ForecastFragment : Fragment(), WeatherScreenContract.Fragment {
 
     //    private val viewModel: ForecastFragmentViewModel by viewModel {

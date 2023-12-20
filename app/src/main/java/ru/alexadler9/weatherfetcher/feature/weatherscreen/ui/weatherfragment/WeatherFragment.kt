@@ -10,6 +10,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.alexadler9.weatherfetcher.databinding.FragmentWeatherBinding
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenContract
 
+/**
+ * Fragment is responsible for loading and displaying the current weather for the specified location.
+ */
 class WeatherFragment : Fragment(), WeatherScreenContract.Fragment {
 
     //    private val viewModel: WeatherFragmentViewModel by viewModel {

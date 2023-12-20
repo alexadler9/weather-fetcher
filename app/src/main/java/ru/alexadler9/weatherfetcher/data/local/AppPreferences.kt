@@ -5,6 +5,7 @@ import co.windly.ktxprefs.annotation.Prefs
 
 @Prefs(value = "AppPreferences")
 class AppPreferences(
+    /** Last city specified by user. */
     @DefaultString(value = "Москва")
     internal val city: String
 )
