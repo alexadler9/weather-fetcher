@@ -2,6 +2,8 @@ package ru.alexadler9.weatherfetcher.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 abstract class BaseViewModel<VIEW_STATE> : ViewModel() {
 
@@ -19,7 +21,7 @@ abstract class BaseViewModel<VIEW_STATE> : ViewModel() {
         updateState(event)
     }
 
-    private fun updateState(event: Event) {
+    private fun updateState(event: Event) = viewModelScope.launch {
         val newViewState = reduce(event, viewState.value ?: initialViewState())
         if (newViewState != null && newViewState != viewState.value) {
             viewState.value = newViewState
