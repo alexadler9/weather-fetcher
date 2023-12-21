@@ -19,7 +19,7 @@ data class ViewState(
 sealed class UiEvent() : Event {
     data class OnCitySearchEdit(val text: String) : UiEvent()
     object OnCitySearchButtonClicked : UiEvent()
-    object OnButtonClicked : UiEvent()
+    object OnUpdateButtonClicked : UiEvent()
 }
 
 sealed class DataEvent() : Event {

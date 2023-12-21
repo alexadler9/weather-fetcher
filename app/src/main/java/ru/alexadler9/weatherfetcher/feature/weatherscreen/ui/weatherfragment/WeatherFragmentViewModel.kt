@@ -1,6 +1,5 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.weatherfragment
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.alexadler9.weatherfetcher.base.BaseViewModel
@@ -45,11 +44,11 @@ class WeatherFragmentViewModel(private val interactor: WeatherInteractor) :
             }
 
             is DataEvent.OnWeatherLoadFailed -> {
-                return previousState.copy(state = State.Error(event.error))
+                previousState.copy(state = State.Error(event.error))
             }
 
             is DataEvent.OnWeatherNotFound -> {
-                return previousState.copy(state = State.NotFound)
+                previousState.copy(state = State.NotFound)
             }
 
             else -> null
@@ -70,7 +69,6 @@ class WeatherFragmentViewModel(private val interactor: WeatherInteractor) :
                         processDataEvent(DataEvent.OnWeatherNotFound)
                     } else {
                         val geo = geoModel.first()
-                        Log.d(this.javaClass.simpleName, geo.toString())
                         interactor.getWeather(
                             geo.latitude.toString(),
                             geo.longitude.toString()

@@ -37,7 +37,7 @@ class ForecastFragment : Fragment(), WeatherScreenContract.Fragment {
         viewModel.viewState.observe(viewLifecycleOwner, ::render)
 
         binding.fabWeatherFetch.setOnClickListener {
-            viewModel.processUiEvent(UiEvent.OnButtonClicked)
+            viewModel.processUiEvent(UiEvent.OnUpdateButtonClicked)
         }
     }
 
