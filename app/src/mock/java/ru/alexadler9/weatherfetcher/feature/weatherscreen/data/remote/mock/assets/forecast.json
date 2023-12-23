@@ -1,0 +1,768 @@
+{
+  "cnt": 40,
+  "list": [
+    {
+      "dt": 1704110400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704121200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704132000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704142800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704153600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704164400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704175200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704186000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704196800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704207600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704218400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704229200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704240000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704250800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704261600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704272400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704283200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704294000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704304800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704315600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704326400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704337200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704348000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704358800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704369600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704380400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704391200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704402000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704412800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704423600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704434400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704445200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704456000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704466800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704477600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704488400,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704499200,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704510000,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704520800,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    },
+    {
+      "dt": 1704531600,
+      "main": {
+        "temp": 20.0,
+        "feels_like": 18.75,
+        "humidity": 23
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Ясно",
+          "description": "Ясно",
+          "icon": "10d"
+        }
+      ],
+      "wind": {
+        "speed": 0.62
+      }
+    }
+  ],
+  "city": {
+    "timezone": 0
+  }
+}

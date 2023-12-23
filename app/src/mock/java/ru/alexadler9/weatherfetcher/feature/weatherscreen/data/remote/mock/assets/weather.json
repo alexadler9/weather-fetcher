@@ -1,0 +1,24 @@
+{
+  "coord": {
+    "lon": 55.76166,
+    "lat": 37.606667
+  },
+  "weather": [
+    {
+      "id": 501,
+      "main": "Ясно",
+      "description": "Ясно",
+      "icon": "10d"
+    }
+  ],
+  "main": {
+    "temp": 20.0,
+    "feels_like": 18.75,
+    "humidity": 64
+  },
+  "wind": {
+    "speed": 0.62
+  },
+  "dt": 1704110400,
+  "timezone": 0
+}

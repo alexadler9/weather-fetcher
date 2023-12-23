@@ -24,20 +24,47 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     testOptions {
         unitTests.all {
             useJUnitPlatform()
         }
     }
+
     buildFeatures {
         viewBinding true
+    }
+
+    flavorDimensions 'version'
+    productFlavors {
+        mock {
+            dimension 'version'
+            applicationIdSuffix = ".mock"
+            buildConfigField "String", "WEATHER_BASE_URL", '"https://mock.api"'
+            buildConfigField "String", "WEATHER_API_KEY", '""'
+        }
+        prod {
+            dimension 'version'
+            buildConfigField "String", "WEATHER_BASE_URL", '"https://api.openweathermap.org/"'
+            buildConfigField "String", "WEATHER_API_KEY", '"63defae2a41ce41a3f41adfd722c0e72"'
+        }
+    }
+
+    sourceSets {
+        mock {
+            assets {
+                srcDirs 'src\\mock\\assets', 'src\\mock\\java\\ru\\alexadler9\\weatherfetcher\\feature\\weatherscreen\\data\\remote\\mock\\assets'
+            }
+        }
     }
 }
 

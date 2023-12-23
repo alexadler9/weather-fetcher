@@ -5,6 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import ru.alexadler9.weatherfetcher.di.networkModule
+import ru.alexadler9.weatherfetcher.di.prefsModule
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.di.weatherModule
 
 class App : Application() {
@@ -14,7 +15,7 @@ class App : Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(networkModule, weatherModule)
+            modules(prefsModule, networkModule, weatherModule)
         }
     }
 }

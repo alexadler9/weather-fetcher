@@ -2,7 +2,7 @@ package ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote
 
 import retrofit2.http.GET
 import retrofit2.http.Query
-import ru.alexadler9.weatherfetcher.di.WEATHER_API_KEY
+import ru.alexadler9.weatherfetcher.BuildConfig
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.ForecastRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.GeoRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.WeatherRemoteModel
@@ -25,7 +25,7 @@ interface WeatherApi {
         @Query("lon") lon: String,
         @Query("units") units: String = "metric",
         @Query("lang") lang: String = "ru",
-        @Query("appid") apiKey: String = WEATHER_API_KEY
+        @Query("appid") apiKey: String = BuildConfig.WEATHER_API_KEY
     ): WeatherRemoteModel
 
     /**
@@ -42,7 +42,7 @@ interface WeatherApi {
         @Query("lon") lon: String,
         @Query("units") units: String = "metric",
         @Query("lang") lang: String = "ru",
-        @Query("appid") apiKey: String = WEATHER_API_KEY
+        @Query("appid") apiKey: String = BuildConfig.WEATHER_API_KEY
     ): ForecastRemoteModel
 
     /**
@@ -53,6 +53,6 @@ interface WeatherApi {
     @GET("geo/1.0/direct")
     suspend fun getCoordinates(
         @Query("q") city: String,
-        @Query("appid") apiKey: String = WEATHER_API_KEY
+        @Query("appid") apiKey: String = BuildConfig.WEATHER_API_KEY
     ): List<GeoRemoteModel>
 }
