@@ -65,18 +65,64 @@ class InstrumentedTest {
     }
 
     @Test
-    fun notfound() {
-        onView(withId(R.id.etCitySearch)).perform(replaceText("Undefined city"))
+    fun testWeatherLoadedSuccessfully() {
+        // For testing, use the "mock" version of the application
+        onView(
+            allOf(
+                withId(R.id.weatherFragment),
+                isDescendantOfA(withId(R.id.fragmentContainerView))
+            )
+        ).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.etCitySearch)).perform(replaceText("Москва"))
         onView(withId(R.id.ivCitySearch)).perform(click())
-        //onView(withId(R.id.etCitySearch)).check(matches(withText("Москва")))
+        onView(withId(R.id.layoutWeather)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
+
+    @Test
+    fun testForecastLoadedSuccessfully() {
+        // For testing, use the "mock" version of the application
+        onView(
+            allOf(
+                withId(R.id.forecastFragment),
+                isDescendantOfA(withId(R.id.bottomNav))
+            )
+        ).perform(click())
+        onView(
+            allOf(
+                withId(R.id.forecastFragment),
+                isDescendantOfA(withId(R.id.fragmentContainerView))
+            )
+        ).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.etCitySearch)).perform(replaceText("Москва"))
+        onView(withId(R.id.ivCitySearch)).perform(click())
+        onView(withId(R.id.layoutWeather)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
+
+    @Test
+    fun testCityNotFound() {
+        // For testing, use the "mock" version of the application
+        onView(
+            allOf(
+                withId(R.id.weatherFragment),
+                isDescendantOfA(withId(R.id.fragmentContainerView))
+            )
+        ).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.etCitySearch)).perform(replaceText("undefined"))
+        onView(withId(R.id.ivCitySearch)).perform(click())
         onView(withId(R.id.layoutNotFound)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
-
-//    @Test
-//    fun useAppContext() {
-//        // Context of the app under test.
-//        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-//        assertEquals("ru.alexadler9.weatherfetcher", appContext.packageName)
-//    }
+    @Test
+    fun testDataLoadError() {
+        // For testing, use the "mock" version of the application
+        onView(
+            allOf(
+                withId(R.id.weatherFragment),
+                isDescendantOfA(withId(R.id.fragmentContainerView))
+            )
+        ).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.etCitySearch)).perform(replaceText("error"))
+        onView(withId(R.id.ivCitySearch)).perform(click())
+        onView(withId(R.id.layoutError)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
 }
