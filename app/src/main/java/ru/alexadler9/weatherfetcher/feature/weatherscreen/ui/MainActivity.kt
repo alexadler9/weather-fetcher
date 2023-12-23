@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), WeatherScreenContract.Activity {
             }
 
             etCitySearch.doAfterTextChanged { text ->
-                supportFragmentManager.findFragmentById(R.id.fragment_container_view)
+                supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
                     .let { fragment ->
                         if (fragment is WeatherScreenContract.Fragment) {
                             fragment.onCitySearchEditChanged(text.toString())
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), WeatherScreenContract.Activity {
             }
 
             ivCitySearch.setOnClickListener {
-                supportFragmentManager.findFragmentById(R.id.fragment_container_view)
+                supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
                     .let { fragment ->
                         if (fragment is WeatherScreenContract.Fragment) {
                             fragment.onCitySearchButtonClicked()
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity(), WeatherScreenContract.Activity {
 
     private fun selectTab(fragment: Fragment) {
         supportFragmentManager.commit {
-            replace(R.id.fragment_container_view, fragment)
+            replace(R.id.fragmentContainerView, fragment)
         }
     }
 

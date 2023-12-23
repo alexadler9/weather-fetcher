@@ -7,17 +7,25 @@ import ru.alexadler9.weatherfetcher.data.PreferencesRepository
 import java.io.IOException
 import java.io.InputStream
 
+/**
+ * Determines which requests should be mocked using test responses.
+ */
 class RequestsHandler(
     private val context: Context,
     private val preferencesRepository: PreferencesRepository
 ) {
 
+    // List of requests that will be mocked
+    // Key is the intercepted request path, and value is the path to JSON file with the response
     private val responsesMap = mutableMapOf(
         "data/2.5/weather" to "weather.json",
         "data/2.5/forecast" to "forecast.json",
         "geo/1.0/direct" to "geo.json"
     )
 
+    /**
+     * Determines whether the request should be intercepted.
+     */
     fun shouldIntercept(path: String): Boolean {
         for (interceptUrl in responsesMap.keys) {
             if (path.contains(interceptUrl)) {
@@ -44,6 +52,9 @@ class RequestsHandler(
         return errorResponse(request, 500, "Incorrectly intercepted request")
     }
 
+    /**
+     * Creates a Response using a JSON file.
+     */
     private fun createResponseFromAssets(
         request: Request,
         assetPath: String
