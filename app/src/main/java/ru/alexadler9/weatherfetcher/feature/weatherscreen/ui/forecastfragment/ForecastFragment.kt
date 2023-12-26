@@ -1,5 +1,6 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.forecastfragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,15 +14,18 @@ import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenContra
 /**
  * Fragment is responsible for loading and displaying the list of daily forecasts for the specified location.
  */
-class ForecastFragment : Fragment(), WeatherScreenContract.Fragment {
+class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
 
-    //    private val viewModel: ForecastFragmentViewModel by viewModel {
-//        parametersOf(requireAppPreferences().getCity())
-//    }
     private val viewModel: ForecastFragmentViewModel by viewModel()
+    private var hostCallbacks: WeatherScreenContract.ActivityCallbacks? = null
 
     private var _binding: FragmentForecastBinding? = null
     private val binding get() = _binding!!
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        hostCallbacks = context as WeatherScreenContract.ActivityCallbacks?
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,12 +50,13 @@ class ForecastFragment : Fragment(), WeatherScreenContract.Fragment {
         _binding = null
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        hostCallbacks = null
+    }
+
     private fun render(viewState: ViewState) {
-        val activityParent = activity
-        if (activityParent is WeatherScreenContract.Activity) {
-            activityParent.citySearchEditSetText(viewState.cityEditable)
-            activityParent.citySearchButtonSetEnabled(viewState.cityEditable.isNotEmpty())
-        }
+        hostCallbacks?.onCitySearchUpdated(viewState.cityEditable)
         with(binding) {
             when (viewState.state) {
                 is State.Load -> {
@@ -84,8 +89,8 @@ class ForecastFragment : Fragment(), WeatherScreenContract.Fragment {
         }
     }
 
-    override fun onCitySearchEditChanged(text: String) {
-        viewModel.processUiEvent(UiEvent.OnCitySearchEdit(text))
+    override fun onCitySearchEdited(text: String) {
+        viewModel.processUiEvent(UiEvent.OnCitySearchEdited(text))
     }
 
     override fun onCitySearchButtonClicked() {

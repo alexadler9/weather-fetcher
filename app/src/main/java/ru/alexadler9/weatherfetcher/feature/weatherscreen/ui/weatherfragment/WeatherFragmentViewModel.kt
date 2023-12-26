@@ -25,7 +25,7 @@ class WeatherFragmentViewModel(private val interactor: WeatherInteractor) :
                 previousState.copy(state = State.Load)
             }
 
-            is UiEvent.OnCitySearchEdit -> {
+            is UiEvent.OnCitySearchEdited -> {
                 previousState.copy(cityEditable = event.text)
             }
 

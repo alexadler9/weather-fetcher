@@ -59,7 +59,7 @@ class WeatherFragmentViewModelTest {
 
         assertEquals(subject.viewState.value?.cityEditable, "")
 
-        subject.processUiEvent(UiEvent.OnCitySearchEdit(CITY_NAME_2))
+        subject.processUiEvent(UiEvent.OnCitySearchEdited(CITY_NAME_2))
 
         assertEquals(subject.viewState.value?.cityEditable, CITY_NAME_2)
     }
@@ -72,7 +72,7 @@ class WeatherFragmentViewModelTest {
 
         assertEquals(subject.viewState.value?.city, CITY_NAME_1)
 
-        subject.processUiEvent(UiEvent.OnCitySearchEdit(CITY_NAME_2))
+        subject.processUiEvent(UiEvent.OnCitySearchEdited(CITY_NAME_2))
         subject.processUiEvent(UiEvent.OnCitySearchButtonClicked)
 
         // Loads 2 times: first load is for CITY_NAME_1 during lazy initialization, the second is for CITY_NAME_2

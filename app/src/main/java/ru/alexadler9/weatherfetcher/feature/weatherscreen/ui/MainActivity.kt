@@ -17,9 +17,13 @@ import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.weatherfragment.Wea
  * - location input field;
  * - location search button.
  */
-class MainActivity : AppCompatActivity(), WeatherScreenContract.Activity {
+class MainActivity : AppCompatActivity(), WeatherScreenContract.ActivityCallbacks {
 
     private lateinit var binding: ActivityMainBinding
+    private val fragmentCallbacks: WeatherScreenContract.FragmentCallbacks?
+        get() = supportFragmentManager.findFragmentById(R.id.fragmentContainerView).let {
+            it as WeatherScreenContract.FragmentCallbacks?
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,22 +52,12 @@ class MainActivity : AppCompatActivity(), WeatherScreenContract.Activity {
             }
 
             etCitySearch.doAfterTextChanged { text ->
-                supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
-                    .let { fragment ->
-                        if (fragment is WeatherScreenContract.Fragment) {
-                            fragment.onCitySearchEditChanged(text.toString())
-                        }
-                    }
+                fragmentCallbacks?.onCitySearchEdited(text.toString())
             }
 
             ivCitySearch.setOnClickListener {
-                supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
-                    .let { fragment ->
-                        if (fragment is WeatherScreenContract.Fragment) {
-                            fragment.onCitySearchButtonClicked()
-                            etCitySearch.clearFocus()
-                        }
-                    }
+                fragmentCallbacks?.onCitySearchButtonClicked()
+                etCitySearch.clearFocus()
             }
         }
     }
@@ -74,13 +68,10 @@ class MainActivity : AppCompatActivity(), WeatherScreenContract.Activity {
         }
     }
 
-    override fun citySearchEditSetText(text: String) {
+    override fun onCitySearchUpdated(text: String) {
         if (binding.etCitySearch.text.toString() != text) {
             binding.etCitySearch.text = text.toEditable()
         }
-    }
-
-    override fun citySearchButtonSetEnabled(enabled: Boolean) {
-        binding.ivCitySearch.isEnabled = enabled
+        binding.ivCitySearch.isEnabled = text.isNotEmpty()
     }
 }

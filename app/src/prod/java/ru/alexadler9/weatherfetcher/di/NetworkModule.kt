@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.alexadler9.weatherfetcher.BuildConfig
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.WeatherRepository
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.WeatherRepositoryImpl
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.WeatherApi

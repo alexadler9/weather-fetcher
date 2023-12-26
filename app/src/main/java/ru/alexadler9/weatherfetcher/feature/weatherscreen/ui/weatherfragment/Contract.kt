@@ -17,7 +17,7 @@ data class ViewState(
 )
 
 sealed class UiEvent() : Event {
-    data class OnCitySearchEdit(val text: String) : UiEvent()
+    data class OnCitySearchEdited(val text: String) : UiEvent()
     object OnCitySearchButtonClicked : UiEvent()
     object OnUpdateButtonClicked : UiEvent()
 }
