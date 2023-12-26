@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/forecastFragment"
     tools:context=".feature.weatherscreen.ui.forecastfragment.ForecastFragment">
 
@@ -14,17 +15,16 @@
         android:visibility="gone" />
 
     <FrameLayout
-        android:id="@+id/layoutWeather"
+        android:id="@+id/layoutForecast"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center">
 
-        <TextView
-            android:id="@+id/tvWeather"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvForecasts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </FrameLayout>
 

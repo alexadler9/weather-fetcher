@@ -22,6 +22,10 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
     private var _binding: FragmentForecastBinding? = null
     private val binding get() = _binding!!
 
+    private val forecastsAdapter: ForecastsAdapter by lazy {
+        ForecastsAdapter()
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         hostCallbacks = context as WeatherScreenContract.ActivityCallbacks?
@@ -37,6 +41,8 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.rvForecasts.adapter = forecastsAdapter
 
         viewModel.viewState.observe(viewLifecycleOwner, ::render)
 
@@ -64,7 +70,7 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
                     layoutNotFound.isVisible = false
                     pbWeather.isVisible = true
                     fabWeatherFetch.isEnabled = false
-                    layoutWeather.isVisible = false
+                    layoutForecast.isVisible = false
                 }
 
                 is State.Content -> {
@@ -72,9 +78,9 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
                     layoutNotFound.isVisible = false
                     pbWeather.isVisible = false
                     fabWeatherFetch.isEnabled = true
-                    layoutWeather.isVisible = true
+                    layoutForecast.isVisible = true
                     val forecast = viewState.state.forecastModel
-                    tvWeather.text = forecast.toString()
+                    forecastsAdapter.data = forecast.weather
                 }
 
                 is State.Error,
@@ -83,7 +89,7 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
                     layoutNotFound.isVisible = viewState.state is State.NotFound
                     pbWeather.isVisible = false
                     fabWeatherFetch.isEnabled = true
-                    layoutWeather.isVisible = false
+                    layoutForecast.isVisible = false
                 }
             }
         }
