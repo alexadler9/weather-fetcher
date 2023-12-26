@@ -1,5 +1,6 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.data
 
+import ru.alexadler9.weatherfetcher.BuildConfig
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.ForecastRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.GeoRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.WeatherRemoteModel
@@ -32,10 +33,8 @@ fun WeatherRemoteModel.toDomain() = WeatherModel(
     windSpeed = this.wind.speed,
     details = this.details.map {
         WeatherDetailsModel(
-            id = it.id,
-            main = it.main,
             description = it.description,
-            icon = it.icon
+            icon = BuildConfig.WEATHER_ICON_URL.format(it.icon)
         )
     }
 )
@@ -79,10 +78,8 @@ fun ForecastRemoteModel.toDomain(): ForecastModel {
                 windSpeed = forecastDay.wind.speed,
                 details = forecastDay.details.map {
                     WeatherDetailsModel(
-                        id = it.id,
-                        main = it.main,
                         description = it.description,
-                        icon = it.icon
+                        icon = BuildConfig.WEATHER_ICON_URL.format(it.icon)
                     )
                 }
             )

@@ -4,6 +4,7 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.greaterThanOrEqualTo
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import ru.alexadler9.weatherfetcher.BuildConfig
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.ForecastCityRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.ForecastRemoteModel
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.ForecastWeatherRemoteModel
@@ -24,13 +25,14 @@ class MapperKtTest {
         assertEquals(weatherModel.windSpeed, WEATHER_REMOTE_MODEL.wind.speed)
         assertThat(weatherModel.details.size, greaterThanOrEqualTo(1))
         assertEquals(weatherModel.details.size, WEATHER_REMOTE_MODEL.details.size)
-        assertEquals(weatherModel.details.first().id, WEATHER_REMOTE_MODEL.details.first().id)
-        assertEquals(weatherModel.details.first().main, WEATHER_REMOTE_MODEL.details.first().main)
         assertEquals(
             weatherModel.details.first().description,
             WEATHER_REMOTE_MODEL.details.first().description
         )
-        assertEquals(weatherModel.details.first().icon, WEATHER_REMOTE_MODEL.details.first().icon)
+        assertEquals(
+            weatherModel.details.first().icon,
+            BuildConfig.WEATHER_ICON_URL.format(WEATHER_REMOTE_MODEL.details.first().icon)
+        )
     }
 
     @Test

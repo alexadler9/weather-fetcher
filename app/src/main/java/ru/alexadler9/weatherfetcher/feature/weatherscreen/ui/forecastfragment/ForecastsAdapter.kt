@@ -1,8 +1,10 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.forecastfragment
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import ru.alexadler9.weatherfetcher.R
 import ru.alexadler9.weatherfetcher.databinding.ItemForecastBinding
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.ForecastWeatherModel
@@ -10,6 +12,8 @@ import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.ForecastW
 class ForecastsAdapter : RecyclerView.Adapter<ForecastsAdapter.ForecastViewHolder>() {
 
     var data = listOf<ForecastWeatherModel>()
+        // No need to use DiffUtil
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -30,6 +34,11 @@ class ForecastsAdapter : RecyclerView.Adapter<ForecastsAdapter.ForecastViewHolde
                     R.string.temperature_value,
                     item.tempNight.toFloat()
                 ).replace(',', '.')
+                Glide.with(root.context)
+                    .load(item.details.first().icon)
+                    .circleCrop()
+                    .placeholder(R.drawable.ic_baseline_image_search_24)
+                    .into(ivIcon)
             }
         }
 

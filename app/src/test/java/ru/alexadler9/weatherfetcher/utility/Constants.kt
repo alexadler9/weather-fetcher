@@ -1,5 +1,6 @@
 package ru.alexadler9.weatherfetcher.utility
 
+import ru.alexadler9.weatherfetcher.BuildConfig
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.remote.model.*
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.model.*
 
@@ -29,10 +30,8 @@ val WEATHER_MODEL = WeatherModel(
     windSpeed = "2",
     details = listOf(
         WeatherDetailsModel(
-            id = 0,
-            main = "ясно",
             description = "ясно",
-            icon = ""
+            icon = BuildConfig.WEATHER_ICON_URL.format("01")
         )
     )
 )
@@ -48,10 +47,8 @@ val FORECAST_MODEL = ForecastModel(
             windSpeed = "2",
             details = listOf(
                 WeatherDetailsModel(
-                    id = 0,
-                    main = "ясно",
                     description = "ясно",
-                    icon = ""
+                    icon = BuildConfig.WEATHER_ICON_URL.format("01")
                 )
             )
         )

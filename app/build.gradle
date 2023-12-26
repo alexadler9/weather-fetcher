@@ -50,11 +50,13 @@ android {
             dimension 'version'
             applicationIdSuffix = ".mock"
             buildConfigField "String", "WEATHER_BASE_URL", '"https://mock.api"'
+            buildConfigField "String", "WEATHER_ICON_URL", '""'
             buildConfigField "String", "WEATHER_API_KEY", '""'
         }
         prod {
             dimension 'version'
             buildConfigField "String", "WEATHER_BASE_URL", '"https://api.openweathermap.org/"'
+            buildConfigField "String", "WEATHER_ICON_URL", '"https://openweathermap.org/img/wn/%s@2x.png"'
             buildConfigField "String", "WEATHER_API_KEY", '"63defae2a41ce41a3f41adfd722c0e72"'
         }
     }
@@ -74,6 +76,7 @@ dependencies {
     def prefs_version = "1.5.0"
     def retrofit_version = "2.9.0"
     def gson_version = "2.10.1"
+    def glide_version = "4.13.0"
     def koin_version = "3.3.2"
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -90,6 +93,9 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     // A Retrofit Converter which uses Gson for serialization
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    // An image loading
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
     // Kotlin simple Dependency Injection Framework
     implementation "io.insert-koin:koin-android:$koin_version"
     testImplementation "org.junit.jupiter:junit-jupiter:5.10.1"
