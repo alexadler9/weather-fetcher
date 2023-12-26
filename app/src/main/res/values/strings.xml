@@ -1,7 +1,21 @@
 <resources>
     <string name="app_name">WeatherFetcher</string>
+
+    <string name="city_label">ЧЕЛЯБИНСК</string>
+    <string name="datetime_label">01.01.2024 12:00</string>
+    <string name="weather_description_label">ЯСНО</string>
+    <string name="weather_temperature_label">+20.0°C</string>
+    <string name="wind_speed_label">10 м/c</string>
+    <string name="humidity_label">10%</string>
+    <string name="weather_temperature_feels_label">ощущается как:</string>
+
+    <string name="temperature_value">%1$+05.01f°C</string>
+    <string name="wind_speed_value">%1$04.01f м/с</string>
+    <string name="humidity_value">%1$02d%%</string>
+
     <string name="load_error">ОШИБКА ЗАГРУЗКИ ДАННЫХ</string>
     <string name="city_not_found">ГОРОД НЕ НАЙДЕН</string>
+
     <string name="menu_weather_current">СЕГОДНЯ</string>
     <string name="menu_weather_forecast">НА 3 ДНЯ</string>
 </resources>

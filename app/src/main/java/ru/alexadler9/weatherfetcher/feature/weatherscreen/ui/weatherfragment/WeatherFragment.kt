@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.alexadler9.weatherfetcher.R
 import ru.alexadler9.weatherfetcher.databinding.FragmentWeatherBinding
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenContract
 
@@ -40,7 +41,7 @@ class WeatherFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
 
         viewModel.viewState.observe(viewLifecycleOwner, ::render)
 
-        binding.fabWeatherFetch.setOnClickListener {
+        binding.fabWeatherUpdate.setOnClickListener {
             viewModel.processUiEvent(UiEvent.OnUpdateButtonClicked)
         }
     }
@@ -58,12 +59,14 @@ class WeatherFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
     private fun render(viewState: ViewState) {
         hostCallbacks?.onCitySearchUpdated(viewState.cityEditable)
         with(binding) {
+            tvCity.text = viewState.city.uppercase()
             when (viewState.state) {
                 is State.Load -> {
                     layoutError.isVisible = false
                     layoutNotFound.isVisible = false
                     pbWeather.isVisible = true
-                    fabWeatherFetch.isEnabled = false
+                    fabWeatherUpdate.isEnabled = false
+                    tvDateTime.isVisible = false
                     layoutWeather.isVisible = false
                 }
 
@@ -71,10 +74,33 @@ class WeatherFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
                     layoutError.isVisible = false
                     layoutNotFound.isVisible = false
                     pbWeather.isVisible = false
-                    fabWeatherFetch.isEnabled = true
+                    fabWeatherUpdate.isEnabled = true
+                    tvDateTime.isVisible = true
                     layoutWeather.isVisible = true
                     val weather = viewState.state.weatherModel
-                    tvWeather.text = weather.toString()
+                    tvDateTime.text = weather.datetime
+                    tvDescription.text =
+                        if (weather.details.isEmpty()) "" else weather.details[0].description.uppercase()
+                    tvTemp.text =
+                        if (weather.temp.isEmpty()) "" else getString(
+                            R.string.temperature_value,
+                            weather.temp.toFloat()
+                        ).replace(',', '.')
+                    tvWindSpeed.text =
+                        if (weather.windSpeed.isEmpty()) "" else getString(
+                            R.string.wind_speed_value,
+                            weather.windSpeed.toFloat()
+                        ).replace(',', '.')
+                    tvHumidity.text =
+                        if (weather.humidity.isEmpty()) "" else getString(
+                            R.string.humidity_value,
+                            weather.humidity.toInt()
+                        )
+                    tvTempFeelsLike.text =
+                        if (weather.tempFeelsLike.isEmpty()) "" else getString(
+                            R.string.temperature_value,
+                            weather.tempFeelsLike.toFloat()
+                        ).replace(',', '.')
                 }
 
                 is State.Error,
@@ -82,7 +108,9 @@ class WeatherFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
                     layoutError.isVisible = viewState.state is State.Error
                     layoutNotFound.isVisible = viewState.state is State.NotFound
                     pbWeather.isVisible = false
-                    fabWeatherFetch.isEnabled = true
+                    fabWeatherUpdate.isEnabled = true
+                    layoutWeather.isVisible = false
+                    tvDateTime.isVisible = false
                     layoutWeather.isVisible = false
                 }
             }
