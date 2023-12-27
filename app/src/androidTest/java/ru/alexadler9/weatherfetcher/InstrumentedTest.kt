@@ -95,7 +95,7 @@ class InstrumentedTest {
         ).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
         onView(withId(R.id.etCitySearch)).perform(replaceText("Москва"))
         onView(withId(R.id.ivCitySearch)).perform(click())
-        onView(withId(R.id.layoutWeather)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.rvForecasts)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test

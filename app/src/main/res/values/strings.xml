@@ -8,6 +8,10 @@
     <string name="wind_speed_label">10 м/c</string>
     <string name="humidity_label">10%</string>
     <string name="weather_temperature_feels_label">ощущается как:</string>
+    <string name="day_of_week_label">ПН</string>
+    <string name="date_label">1 янв.</string>
+    <string name="weather_day_temp_label">Днем</string>
+    <string name="weather_night_temp_label">Ночью</string>
 
     <string name="temperature_value">%1$+05.01f°C</string>
     <string name="wind_speed_value">%1$04.01f м/с</string>

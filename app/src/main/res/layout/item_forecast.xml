@@ -2,20 +2,22 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvDayOfWeek"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="ЧТ"
+            android:text="@string/day_of_week_label"
             android:textAlignment="center"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="@id/tvDate"
@@ -24,23 +26,30 @@
 
         <TextView
             android:id="@+id/tvDate"
-            android:layout_width="wrap_content"
+            android:layout_width="64dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="27 дек."
+            android:text="@string/date_label"
             android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDayOfWeek" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvDate"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/ivIcon"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_margin="16dp"
+            android:layout_marginStart="33dp"
             android:src="@drawable/ic_baseline_image_search_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvDate"
@@ -51,8 +60,8 @@
             android:id="@+id/tvDayTempLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Днем"
+            android:layout_marginStart="16dp"
+            android:text="@string/weather_day_temp_label"
             android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@id/ivIcon"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +70,7 @@
             android:id="@+id/tvDayTemp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
+            android:layout_marginStart="8dp"
             android:text="@string/weather_temperature_label"
             android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@id/tvDayTempLabel"
@@ -71,10 +80,9 @@
             android:id="@+id/tvNightTempLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="Ночью"
+            android:text="@string/weather_night_temp_label"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/ivIcon"
             app:layout_constraintTop_toBottomOf="@id/tvDayTempLabel" />
@@ -83,7 +91,7 @@
             android:id="@+id/tvNightTemp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
+            android:layout_marginStart="8dp"
             android:text="@string/weather_temperature_label"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/tvNightTempLabel"

@@ -46,7 +46,7 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
 
         viewModel.viewState.observe(viewLifecycleOwner, ::render)
 
-        binding.fabWeatherFetch.setOnClickListener {
+        binding.fabForecastUpdate.setOnClickListener {
             viewModel.processUiEvent(UiEvent.OnUpdateButtonClicked)
         }
     }
@@ -64,21 +64,22 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
     private fun render(viewState: ViewState) {
         hostCallbacks?.onCitySearchUpdated(viewState.cityEditable)
         with(binding) {
+            tvCity.text = viewState.city.uppercase()
             when (viewState.state) {
                 is State.Load -> {
                     layoutError.isVisible = false
                     layoutNotFound.isVisible = false
-                    pbWeather.isVisible = true
-                    fabWeatherFetch.isEnabled = false
-                    layoutForecast.isVisible = false
+                    pbForecast.isVisible = true
+                    fabForecastUpdate.isEnabled = false
+                    rvForecasts.isVisible = false
                 }
 
                 is State.Content -> {
                     layoutError.isVisible = false
                     layoutNotFound.isVisible = false
-                    pbWeather.isVisible = false
-                    fabWeatherFetch.isEnabled = true
-                    layoutForecast.isVisible = true
+                    pbForecast.isVisible = false
+                    fabForecastUpdate.isEnabled = true
+                    rvForecasts.isVisible = true
                     val forecast = viewState.state.forecastModel
                     forecastsAdapter.data = forecast.weather
                 }
@@ -87,9 +88,9 @@ class ForecastFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
                 is State.NotFound -> {
                     layoutError.isVisible = viewState.state is State.Error
                     layoutNotFound.isVisible = viewState.state is State.NotFound
-                    pbWeather.isVisible = false
-                    fabWeatherFetch.isEnabled = true
-                    layoutForecast.isVisible = false
+                    pbForecast.isVisible = false
+                    fabForecastUpdate.isEnabled = true
+                    rvForecasts.isVisible = false
                 }
             }
         }
