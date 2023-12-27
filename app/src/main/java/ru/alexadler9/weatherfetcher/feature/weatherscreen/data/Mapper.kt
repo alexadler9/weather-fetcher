@@ -14,19 +14,20 @@ import java.util.*
 
 private const val DATE_TIME_PATTERN = "dd.MM.yyyy HH:mm"
 
-private fun convertTimestampToDateString(timestamp: Long, pattern: String) =
+private fun convertTimestampToDateString(timestamp: Long, pattern: String = DATE_TIME_PATTERN) =
     SimpleDateFormat(pattern, Locale.getDefault())
         .apply {
             timeZone = TimeZone.getTimeZone("UTC")
         }.format(Date(timestamp * 1000L))
 
 private fun convertTimestampToCalendar(timestamp: Long) =
-    Calendar.getInstance().apply {
+    GregorianCalendar.getInstance().apply {
+        timeZone = TimeZone.getTimeZone("UTC")
         time = Date(timestamp * 1000L)
     }
 
 fun WeatherRemoteModel.toDomain() = WeatherModel(
-    datetime = convertTimestampToDateString(this.dt + this.timezone, DATE_TIME_PATTERN),
+    datetime = convertTimestampToDateString(this.dt + this.timezone),
     temp = this.main.temp,
     tempFeelsLike = this.main.tempFeelsLike,
     humidity = this.main.humidity,
@@ -48,7 +49,7 @@ fun ForecastRemoteModel.toDomain(): ForecastModel {
         convertTimestampToCalendar(it.dt + this.city.timezone)[Calendar.DAY_OF_MONTH]
     }
 
-    for ((date, forecasts) in detailsForecast) {
+    for ((_, forecasts) in detailsForecast) {
         if (forecasts.size != 8) {
             // Forecast data is incomplete
             continue
