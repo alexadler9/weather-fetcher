@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">WeatherFetcher</string>
 
+    <string name="search_hint">Город</string>
     <string name="city_label">ЧЕЛЯБИНСК</string>
     <string name="datetime_label">01.01.2024 12:00</string>
     <string name="weather_description_label">ЯСНО</string>
     <string name="weather_temperature_label">+20.0°C</string>
     <string name="wind_speed_label">10 м/c</string>
     <string name="humidity_label">10%</string>
-    <string name="weather_temperature_feels_label">ощущается как:</string>
+    <string name="weather_temperature_feels_label">ощущается:</string>
     <string name="day_of_week_label">ПН</string>
     <string name="date_label">1 янв.</string>
     <string name="weather_day_temp_label">Днем</string>

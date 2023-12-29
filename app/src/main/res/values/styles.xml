@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTextAppearance">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">?attr/colorMainText</item>
+    </style>
+
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">?attr/colorPrimary</item>
+    </style>
+
+    <style name="WarningTextAppearance" parent="AppTextAppearance">
+        <item name="android:textColor">?attr/colorWarning</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Toolbar style -->
+
+    <style name="ToolbarTextAppearance" parent="AppTextAppearance" />
+
+    <style name="ToolbarTextAppearance.Title">
+        <item name="android:textColor">?attr/colorToolbarText</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ToolbarTextAppearance.EditText">
+        <item name="android:textColor">?attr/colorToolbarEditTextText</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ToolbarSearchStyle" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/background_toolbar_search</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:textCursorDrawable">@drawable/color_toolbar_search_cursor</item>
+        <item name="android:textAppearance">@style/ToolbarTextAppearance.EditText</item>
+    </style>
+
+    <!-- Weather screen style -->
+
+    <style name="WeatherTextAppearance" parent="AppTextAppearance">
+        <item name="android:fontFamily">sans-serif-condensed-light</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="WeatherTextAppearance.Small">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="WeatherTextAppearance.Medium">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="WeatherTextAppearance.Large">
+        <item name="android:textSize">90sp</item>
+    </style>
+
+    <style name="WeatherTextAppearance.Note" parent="WeatherTextAppearance.Small">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <!-- Card style -->
+
+    <style name="CardTextAppearance" parent="AppTextAppearance">
+        <item name="android:fontFamily">sans-serif-condensed-light</item>
+        <item name="android:textColor">?attr/colorCardText</item>
+    </style>
+
+    <style name="CardTextAppearance.Small">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CardTextAppearance.Medium">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="CardTextAppearance.Reading" />
+
+    <style name="CardTextAppearance.Reading.Small">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CardTextAppearance.Reading.Medium">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+</resources>

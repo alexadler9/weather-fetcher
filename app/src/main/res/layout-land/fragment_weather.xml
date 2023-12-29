@@ -9,6 +9,7 @@
 
     <ProgressBar
         android:id="@+id/pbWeather"
+        android:theme="@style/ProgressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -23,9 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-condensed-light"
         android:text="@string/city_label"
-        android:textSize="18sp"
+        android:textAppearance="@style/WeatherTextAppearance.Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/datetime_label"
+        android:textAppearance="@style/WeatherTextAppearance.Note"
         android:textSize="16sp"
-        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCity" />
 
@@ -67,7 +67,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_margin="8dp"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorPrimaryVariant"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDescription"
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/background_card_weather"
+            android:background="@drawable/background_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTemp">
@@ -104,70 +104,70 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:src="@drawable/ic_baseline_wind_power_24"
+                app:tint="?attr/colorCardIconTint"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tvWindSpeed"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed-light"
                 android:gravity="center_vertical"
                 android:text="@string/wind_speed_label"
-                android:textSize="18sp" />
+                android:textAppearance="@style/CardTextAppearance.Reading.Small" />
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginVertical="4dp"
-                android:background="?attr/colorPrimary" />
+                android:background="?attr/colorCardIconTint" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
                 android:src="@drawable/ic_baseline_water_drop_24"
+                app:tint="?attr/colorCardIconTint"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tvHumidity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed-light"
                 android:gravity="center_vertical"
                 android:text="@string/humidity_label"
-                android:textSize="18sp" />
+                android:textAppearance="@style/CardTextAppearance.Reading.Small" />
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginVertical="4dp"
-                android:background="?attr/colorPrimary" />
+                android:background="?attr/colorCardIconTint" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="4dp"
                 android:src="@drawable/ic_baseline_device_thermostat_24"
+                app:tint="?attr/colorCardIconTint"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed-light"
                 android:gravity="center_vertical"
                 android:text="@string/weather_temperature_feels_label"
-                android:textSize="12sp" />
+                android:textAppearance="@style/CardTextAppearance.Small" />
 
             <TextView
                 android:id="@+id/tvTempFeelsLike"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-condensed-light"
+                android:layout_marginStart="4dp"
                 android:gravity="center_vertical"
                 android:text="@string/weather_temperature_label"
-                android:textSize="18sp" />
+                android:textAppearance="@style/CardTextAppearance.Reading.Small" />
 
             <View
                 android:layout_width="20dp"
@@ -193,14 +193,14 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/ic_baseline_error_outline_24"
+            app:tint="?attr/colorWarning"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
             android:text="@string/load_error"
-            android:textAlignment="center" />
+            android:textAppearance="@style/WarningTextAppearance" />
 
     </LinearLayout>
 
@@ -220,14 +220,14 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/ic_baseline_search_off_24"
+            app:tint="?attr/colorWarning"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
             android:text="@string/city_not_found"
-            android:textAlignment="center" />
+            android:textAppearance="@style/WarningTextAppearance" />
 
     </LinearLayout>
 
@@ -238,6 +238,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_baseline_cached_24"
+        app:backgroundTint="?attr/colorAccent"
+        app:tint="?attr/colorOnAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
