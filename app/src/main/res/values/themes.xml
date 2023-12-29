@@ -1,16 +1,33 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.WeatherFetcher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+    <style name="BaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorBackground">?android:colorBackground</item>
+        <item name="colorPrimary">@color/teal_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorPrimaryVariant">@color/teal_50</item>
+        <item name="colorOnPrimaryVariant">@color/teal_800</item>
+        <item name="colorAccent">@color/orange_600</item>
+        <item name="colorOnAccent">@color/white</item>
+        <item name="colorWarning">@color/gray_500</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimary</item>-->
+
+        <item name="colorToolbarBackground">?attr/colorPrimary</item>
+        <item name="colorToolbarText">?attr/colorOnPrimary</item>
+        <item name="colorToolbarEditTextBackground">@color/white</item>
+        <item name="colorToolbarEditTextBorder">@color/teal_800</item>
+        <item name="colorToolbarEditTextText">@color/gray_700</item>
+        <item name="colorToolbarEditTextIconTint">@color/gray_700</item>
+
+        <item name="colorMainText">@color/gray_700</item>
+
+        <item name="colorCardBackground">?attr/colorPrimaryVariant</item>
+        <item name="colorCardRadius">10dp</item>
+        <item name="colorCardText">@color/gray_700</item>
+        <item name="colorCardIconTint">?attr/colorOnPrimaryVariant</item>
     </style>
 </resources>

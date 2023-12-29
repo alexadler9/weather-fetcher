@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseTheme">
+        <attr name="colorBackground" format="color" />
+        <attr name="colorOnPrimaryVariant" format="color" />
+        <attr name="colorOnAccent" format="color" />
+        <attr name="colorWarning" format="color" />
+
+        <attr name="colorToolbarBackground" format="color" />
+        <attr name="colorToolbarText" format="color" />
+        <attr name="colorToolbarEditTextBackground" format="color" />
+        <attr name="colorToolbarEditTextBorder" format="color" />
+        <attr name="colorToolbarEditTextText" format="color" />
+        <attr name="colorToolbarEditTextIconTint" format="color" />
+
+        <attr name="colorMainText" format="color" />
+
+        <attr name="colorCardBackground" format="color" />
+        <attr name="colorCardRadius" format="dimension" />
+        <attr name="colorCardText" format="color" />
+        <attr name="colorCardIconTint" format="color" />
+    </declare-styleable>
+</resources>

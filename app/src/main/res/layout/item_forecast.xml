@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp"
+    android:backgroundTint="?attr/colorCardBackground"
+    app:cardCornerRadius="?attr/colorCardRadius"
+
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,8 +19,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/day_of_week_label"
+            android:textAppearance="@style/CardTextAppearance.Medium"
             android:textAlignment="center"
-            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="@id/tvDate"
             app:layout_constraintStart_toStartOf="@id/tvDate"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/date_label"
+            android:textAppearance="@style/CardTextAppearance.Small"
             android:textAlignment="center"
-            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDayOfWeek" />
@@ -40,7 +41,7 @@
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorCardIconTint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvDate"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,10 +51,11 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginStart="33dp"
-            android:src="@drawable/ic_baseline_image_search_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvDate"
             app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/background_weather_icon"
+            android:src="@drawable/ic_baseline_image_search_24"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -62,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/weather_day_temp_label"
-            android:textSize="22sp"
+            android:textAppearance="@style/CardTextAppearance.Medium"
             app:layout_constraintStart_toEndOf="@id/ivIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/weather_temperature_label"
-            android:textSize="22sp"
+            android:textAppearance="@style/CardTextAppearance.Reading.Medium"
             app:layout_constraintStart_toEndOf="@id/tvDayTempLabel"
             app:layout_constraintTop_toTopOf="@id/tvDayTempLabel" />
 
@@ -83,7 +85,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="@string/weather_night_temp_label"
-            android:textSize="16sp"
+            android:textAppearance="@style/CardTextAppearance.Small"
             app:layout_constraintStart_toEndOf="@id/ivIcon"
             app:layout_constraintTop_toBottomOf="@id/tvDayTempLabel" />
 
@@ -93,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/weather_temperature_label"
-            android:textSize="16sp"
+            android:textAppearance="@style/CardTextAppearance.Reading.Small"
             app:layout_constraintStart_toEndOf="@id/tvNightTempLabel"
             app:layout_constraintTop_toTopOf="@id/tvNightTempLabel" />
 

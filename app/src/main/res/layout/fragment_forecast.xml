@@ -9,6 +9,7 @@
 
     <ProgressBar
         android:id="@+id/pbForecast"
+        android:theme="@style/ProgressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -25,10 +26,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="sans-serif-condensed-light"
         android:text="@string/city_label"
+        android:textAppearance="@style/WeatherTextAppearance.Medium"
         android:textAlignment="center"
-        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,14 +59,14 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/ic_baseline_error_outline_24"
+            app:tint="?attr/colorWarning"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
             android:text="@string/load_error"
-            android:textAlignment="center" />
+            android:textAppearance="@style/WarningTextAppearance" />
 
     </LinearLayout>
 
@@ -86,14 +86,14 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/ic_baseline_search_off_24"
+            app:tint="?attr/colorWarning"
             tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
             android:text="@string/city_not_found"
-            android:textAlignment="center" />
+            android:textAppearance="@style/WarningTextAppearance" />
 
     </LinearLayout>
 
@@ -104,6 +104,8 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:src="@drawable/ic_baseline_cached_24"
+        app:backgroundTint="?attr/colorAccent"
+        app:tint="?attr/colorOnAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="ContentDescription" />

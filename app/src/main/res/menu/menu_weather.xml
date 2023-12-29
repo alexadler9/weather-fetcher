@@ -3,9 +3,11 @@
 
     <item
         android:id="@+id/weatherFragment"
+        android:icon="@drawable/ic_baseline_today_24"
         android:title="@string/menu_weather_current" />
 
     <item
         android:id="@+id/forecastFragment"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
         android:title="@string/menu_weather_forecast" />
 </menu>
