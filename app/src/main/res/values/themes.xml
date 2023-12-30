@@ -28,6 +28,7 @@
         <item name="colorCardBackground">?attr/colorPrimaryVariant</item>
         <item name="colorCardRadius">10dp</item>
         <item name="colorCardText">@color/gray_700</item>
+        <item name="colorCardIconBackground">@color/blue_grey_100</item>
         <item name="colorCardIconTint">?attr/colorOnPrimaryVariant</item>
     </style>
 </resources>

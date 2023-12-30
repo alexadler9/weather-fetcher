@@ -1,16 +1,30 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.WeatherFetcher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="colorBackground">?android:colorBackground</item>
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/gray_300</item>
+        <item name="colorPrimaryVariant">@color/indigo_500</item>
+        <item name="colorOnPrimaryVariant">@color/blue_grey_200</item>
+        <item name="colorAccent">@color/light_green_700</item>
+        <item name="colorOnAccent">@color/gray_300</item>
+        <item name="colorWarning">@color/gray_500</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimary</item>-->
+
+        <item name="colorToolbarBackground">?attr/colorPrimary</item>
+        <item name="colorToolbarText">?attr/colorOnPrimary</item>
+        <item name="colorToolbarEditTextBackground">@color/purple_200</item>
+        <item name="colorToolbarEditTextBorder">@color/purple_900</item>
+        <item name="colorToolbarEditTextText">@color/gray_700</item>
+        <item name="colorToolbarEditTextIconTint">@color/gray_700</item>
+
+        <item name="colorMainText">@color/gray_300</item>
+
+        <item name="colorCardBackground">?attr/colorPrimaryVariant</item>
+        <item name="colorCardRadius">10dp</item>
+        <item name="colorCardText">@color/gray_300</item>
+        <item name="colorCardIconBackground">@color/indigo_500</item>
+        <item name="colorCardIconTint">?attr/colorOnPrimaryVariant</item>
     </style>
 </resources>

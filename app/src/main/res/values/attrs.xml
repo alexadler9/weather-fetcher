@@ -18,6 +18,7 @@
         <attr name="colorCardBackground" format="color" />
         <attr name="colorCardRadius" format="dimension" />
         <attr name="colorCardText" format="color" />
+        <attr name="colorCardIconBackground" format="color" />
         <attr name="colorCardIconTint" format="color" />
     </declare-styleable>
 </resources>
