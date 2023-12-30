@@ -46,6 +46,7 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:paddingEnd="40dp"
+                android:imeOptions="actionSearch"
                 tools:ignore="RtlSymmetry" />
 
             <ImageView

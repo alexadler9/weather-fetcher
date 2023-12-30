@@ -1,6 +1,7 @@
 package ru.alexadler9.weatherfetcher.feature.weatherscreen.ui
 
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -55,9 +56,21 @@ class MainActivity : AppCompatActivity(), WeatherScreenContract.ActivityCallback
                 fragmentCallbacks?.onCitySearchEdited(text.toString())
             }
 
-            ivCitySearch.setOnClickListener {
+            val search = {
                 fragmentCallbacks?.onCitySearchButtonClicked()
                 etCitySearch.clearFocus()
+            }
+
+            etCitySearch.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH && etCitySearch.text.isNotEmpty()) {
+                    search()
+                    return@setOnEditorActionListener true
+                }
+                return@setOnEditorActionListener false
+            }
+
+            ivCitySearch.setOnClickListener {
+                search()
             }
         }
     }
