@@ -5,8 +5,8 @@ import org.koin.dsl.module
 import ru.alexadler9.weatherfetcher.data.PreferencesRepository
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.data.WeatherRepository
 import ru.alexadler9.weatherfetcher.feature.weatherscreen.domain.WeatherInteractor
-import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.forecastfragment.ForecastFragmentViewModel
-import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.weatherfragment.WeatherFragmentViewModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.forecastfragment.ForecastViewModel
+import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.weatherfragment.WeatherViewModel
 
 val weatherModule = module {
 
@@ -17,7 +17,7 @@ val weatherModule = module {
         )
     }
 
-    viewModel<WeatherFragmentViewModel> { WeatherFragmentViewModel(get<WeatherInteractor>()) }
+    viewModel<WeatherViewModel> { WeatherViewModel(get<WeatherInteractor>()) }
 
-    viewModel<ForecastFragmentViewModel> { ForecastFragmentViewModel(get<WeatherInteractor>()) }
+    viewModel<ForecastViewModel> { ForecastViewModel(get<WeatherInteractor>()) }
 }

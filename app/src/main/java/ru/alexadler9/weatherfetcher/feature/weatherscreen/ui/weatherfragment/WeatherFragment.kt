@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.alexadler9.weatherfetcher.R
 import ru.alexadler9.weatherfetcher.databinding.FragmentWeatherBinding
@@ -17,7 +20,7 @@ import ru.alexadler9.weatherfetcher.feature.weatherscreen.ui.WeatherScreenContra
  */
 class WeatherFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
 
-    private val viewModel: WeatherFragmentViewModel by viewModel()
+    private val viewModel: WeatherViewModel by viewModel()
     private var hostCallbacks: WeatherScreenContract.ActivityCallbacks? = null
 
     private var _binding: FragmentWeatherBinding? = null
@@ -39,10 +42,12 @@ class WeatherFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.viewState.observe(viewLifecycleOwner, ::render)
+        viewModel.viewState
+            .onEach(::render)
+            .launchIn(viewLifecycleOwner.lifecycleScope)
 
         binding.fabWeatherUpdate.setOnClickListener {
-            viewModel.processUiEvent(UiEvent.OnUpdateButtonClicked)
+            viewModel.processUiAction(UiAction.OnUpdateButtonClicked)
         }
     }
 
@@ -118,10 +123,10 @@ class WeatherFragment : Fragment(), WeatherScreenContract.FragmentCallbacks {
     }
 
     override fun onCitySearchEdited(text: String) {
-        viewModel.processUiEvent(UiEvent.OnCitySearchEdited(text))
+        viewModel.processUiAction(UiAction.OnCitySearchEdited(text))
     }
 
     override fun onCitySearchButtonClicked() {
-        viewModel.processUiEvent(UiEvent.OnCitySearchButtonClicked)
+        viewModel.processUiAction(UiAction.OnCitySearchButtonClicked)
     }
 }
